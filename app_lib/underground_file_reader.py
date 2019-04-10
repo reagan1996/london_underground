@@ -1,5 +1,5 @@
 from openpyxl import load_workbook
-from station import Station
+from app_lib.station import Station
 
 
 class UndergroundFileReader:
@@ -43,7 +43,7 @@ if __name__ == "__main__":
         return list_of_stations
 
     new_list = list_of_station_class(under.data)
-    print(new_list[0].station_name)
+    # print(new_list[0].station_name)
 
     def selected_borough(list_of_data, borough):
         new_list = []
@@ -52,39 +52,71 @@ if __name__ == "__main__":
                 new_list.append(row)
         return new_list
 
-    def sort_list_by_weekday_entry(list_of_data):
-        return sorted(list_of_data, key=lambda x: x.weekday_entry)
+    def sort_list_by_weekday_entry(list_of_data, desc= True):
+        return sorted(list_of_data, key=lambda x: x.weekday_entry, reverse= desc)
 
-    def sort_list_by_saturday_entry(list_of_data):
-        return sorted(list_of_data, key=lambda x: x.saturday_entry)
+    def sort_list_by_saturday_entry(list_of_data, desc= True):
+        return sorted(list_of_data, key=lambda x: x.saturday_entry, reverse= desc)
 
-    def sort_list_by_sunday_entry(list_of_data):
-        return sorted(list_of_data, key=lambda x: x.sunday_entry)
+    def sort_list_by_sunday_entry(list_of_data, desc= True):
+        return sorted(list_of_data, key=lambda x: x.sunday_entry, reverse= desc)
 
-    def sort_list_by_weekday_exit(list_of_data):
-        return sorted(list_of_data, key=lambda x: x.weekday_exit)
+    def sort_list_by_weekday_exit(list_of_data, desc= True):
+        return sorted(list_of_data, key=lambda x: x.weekday_exit, reverse= desc)
 
-    def sort_list_by_saturday_exit(list_of_data):
-        return sorted(list_of_data, key=lambda x: x.saturday_exit)
+    def sort_list_by_saturday_exit(list_of_data, desc= True):
+        return sorted(list_of_data, key=lambda x: x.saturday_exit, reverse= desc)
 
-    def sort_list_by_sunday_exit(list_of_data):
-        return sorted(list_of_data, key=lambda x: x.sunday_exit)
+    def sort_list_by_sunday_exit(list_of_data, desc= True):
+        return sorted(list_of_data, key=lambda x: x.sunday_exit, reverse= desc)
 
-    def sort_list_by_annual_entry_exit(list_of_data):
-        return sorted(list_of_data, key=lambda x: x.annual_entry_exit)
+    def sort_list_by_annual_entry_exit(list_of_data, desc= True):
+        return sorted(list_of_data, key=lambda x: x.annual_entry_exit, reverse= desc)
 
     sorted_list = sort_list_by_weekday_entry(new_list)
 
 
 
+    def print_top_list(sorted_list, number_of_results):
+        print(
+            "-----------------------------------------------------------------------------------------------------------------------------------")
+        print(sorted_list[0].return_titles())
+        print(
+            "-----------------------------------------------------------------------------------------------------------------------------------")
+        index = 1
+        for station in sorted_list[0:number_of_results]:
+            print(index, ". ")
+            print(station.return_details())
+            index += 1
+
+    def print_top_list_weekday_exit(sorted_list, number_of_results):
+        print(
+            "-----------------------------------------------------------------------------------------------------------------------------------")
+        print(sorted_list[0].return_weekday_exit_title())
+        print(
+            "-----------------------------------------------------------------------------------------------------------------------------------")
+        index = 1
+        for station in sorted_list[0:number_of_results]:
+            print(index, ". ")
+            print(station.return_weekday_exit_details())
+            index += 1
+
+    def print_top_list_annual_entry_exit(sorted_list, number_of_results):
+        print(
+            "-----------------------------------------------------------------------------------------------------------------------------------")
+        print(sorted_list[0].return_annual_entry_exit_title())
+        print(
+            "-----------------------------------------------------------------------------------------------------------------------------------")
+        index = 1
+        for station in sorted_list[0:number_of_results]:
+            print(index, ". ")
+            print(station.return_annual_entry_exit_details())
+            index += 1
+
+    # print_top_list(sorted_list, 5)
+
+    top_annual_entry_exit = sort_list_by_annual_entry_exit(new_list)
+    print_top_list_annual_entry_exit(top_annual_entry_exit, 5)
 
 
-    print("-----------------------------------------------------------------------------------------------------------------------------------")
-    sorted_list[0].print_titles()
-    print("-----------------------------------------------------------------------------------------------------------------------------------")
-    index = 1
-    for station in sorted_list[0:10]:
-        print(index, ". ")
-        station.print_details()
-        index += 1
 

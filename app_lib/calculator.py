@@ -1,6 +1,4 @@
-from app_lib.underground_file_reader import UndergroundFileReader
 from app_lib.station import Station
-import os
 
 def list_of_station_class(data):
     list_of_stations = []
@@ -65,4 +63,46 @@ def print_top_list_annual_entry_exit(sorted_list, number_of_results):
         print(index, ". ")
         print(station.return_annual_entry_exit_details())
         index += 1
+
+def list_of_weekday_entry(data):
+    new_list = []
+    for row in data:
+        new_list.append(row.weekday_entry)
+    return new_list
+
+def list_of_satureday_entry(data):
+    new_list = []
+    for row in data:
+        new_list.append(row.saturday_entry)
+    return new_list
+
+def list_of_sunday_entry(data):
+    new_list = []
+    for row in data:
+        new_list.append(row.sunday_entry)
+    return new_list
+
+def list_of_weekday_exit(data):
+    new_list = []
+    for row in data:
+        new_list.append(row.weekday_exit)
+    return new_list
+
+def list_of_saturday_exit(data):
+    new_list = []
+    for row in data:
+        new_list.append(row.saturday_exit)
+    return new_list
+
+def list_of_sunday_exit(data):
+    new_list = []
+    for row in data:
+        new_list.append(row.sunday_exit)
+    return new_list
+
+def list_of_annual_entry_exit(data):
+    new_list = []
+    for row in data:
+        new_list.append(row.annual_entry_exit)
+    return new_list
 

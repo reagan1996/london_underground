@@ -15,7 +15,11 @@ class UndergroundFileReader:
         except FileNotFoundError:
             raise FileNotFoundError("no file found")
 
-
+    def create_list_of_cell_data(self):
+        list_of_data = []
+        for row in self.worksheet.values:
+            list_of_data.append(list(row))
+        return list_of_data[1:]
 
     def return_cell_value(self, cell_reference):
         return self.worksheet[cell_reference].value
@@ -24,11 +28,7 @@ class UndergroundFileReader:
         for item in self.worksheet:
             print(item)
 
-    def create_list_of_cell_data(self):
-        list_of_data = []
-        for row in self.worksheet.values:
-            list_of_data.append(list(row))
-        return list_of_data[1:]
+
 
 
 

@@ -25,15 +25,66 @@ class UndergroundFileReader:
             print(item)
 
     def create_list_of_cell_data(self):
-        list = []
+        list_of_data = []
         for row in self.worksheet.values:
-            new_station = Station(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8])
-            list.append(new_station)
+            list_of_data.append(list(row))
+        return list_of_data[1:]
 
-        return list[1:]
+
 
 
 if __name__ == "__main__":
     under = UndergroundFileReader("london_underground.xlsx")
-    print(under.data[0].station_name)
-    x = UndergroundFileReader("no_file.xlsx")
+
+    def list_of_station_class(data):
+        list_of_stations = []
+        for row in data:
+            list_of_stations.append(Station(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8]))
+        return list_of_stations
+
+    new_list = list_of_station_class(under.data)
+    print(new_list[0].station_name)
+
+    def selected_borough(list_of_data, borough):
+        new_list = []
+        for row in list_of_data:
+            if row.borough == borough:
+                new_list.append(row)
+        return new_list
+
+    def sort_list_by_weekday_entry(list_of_data):
+        return sorted(list_of_data, key=lambda x: x.weekday_entry)
+
+    def sort_list_by_saturday_entry(list_of_data):
+        return sorted(list_of_data, key=lambda x: x.saturday_entry)
+
+    def sort_list_by_sunday_entry(list_of_data):
+        return sorted(list_of_data, key=lambda x: x.sunday_entry)
+
+    def sort_list_by_weekday_exit(list_of_data):
+        return sorted(list_of_data, key=lambda x: x.weekday_exit)
+
+    def sort_list_by_saturday_exit(list_of_data):
+        return sorted(list_of_data, key=lambda x: x.saturday_exit)
+
+    def sort_list_by_sunday_exit(list_of_data):
+        return sorted(list_of_data, key=lambda x: x.sunday_exit)
+
+    def sort_list_by_annual_entry_exit(list_of_data):
+        return sorted(list_of_data, key=lambda x: x.annual_entry_exit)
+
+    sorted_list = sort_list_by_weekday_entry(new_list)
+
+
+
+
+
+    print("-----------------------------------------------------------------------------------------------------------------------------------")
+    sorted_list[0].print_titles()
+    print("-----------------------------------------------------------------------------------------------------------------------------------")
+    index = 1
+    for station in sorted_list[0:10]:
+        print(index, ". ")
+        station.print_details()
+        index += 1
+

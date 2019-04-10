@@ -1,7 +1,5 @@
 from openpyxl import load_workbook
 
-
-
 class UndergroundFileReader:
 
     def __init__(self, file_name_and_path):

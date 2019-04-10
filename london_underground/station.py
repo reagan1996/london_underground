@@ -14,11 +14,11 @@ class Station:
         return "Station Name, Borough, Weekday- Entry, Saturday- Entry, Sunday- Entry, Weekday- Exit, Sturday- Exit, Sunday- Exit, " + \
                "Annual- Entry + Exit"
 
+    def return_weekday_entry_title(self):
+        return "Station Name, Borough, Weekday- Entry"
+
     def return_weekday_exit_title(self):
         return "Station Name, Borough, Weekday- Exit"
-
-    def return_annual_entry_exit_title(self):
-        return "Station Name, Borough, Annual- Entry + Exit"
 
     def return_details(self):
         return self.station_name + ", " + self.borough + ", " + str(self.weekday_entry) + \
@@ -29,5 +29,5 @@ class Station:
     def return_weekday_exit_details(self):
         return self.station_name + ", " + self.borough + ", " + str(self.weekday_exit)
 
-    def return_annual_entry_exit_details(self):
-        return self.station_name + ", " + self.borough + ", " + str(self.annual_entry_exit)
+    def return_weekday_entry_details(self):
+        return self.station_name + ", " + self.borough + ", " + str(self.weekday_entry)

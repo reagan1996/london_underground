@@ -16,3 +16,6 @@ class TestUndergroundFileReader:
 
     def test_top_weekday_entry(self):
         assert sort_list_by_weekday_entry(self.test_data)[0].station_name == "test station 2"
+
+    def test_bottom_annual_entry_exit(self):#
+        assert sort_list_by_annual_entry_exit(self.test_data,False)[0].station_name == "test station 1"

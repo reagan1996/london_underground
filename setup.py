@@ -1,3 +1,3 @@
 from setuptools import setup
 
-setup(name="app_lib")
+setup(name="london_underground")

@@ -1,6 +1,7 @@
-from app_lib.underground_file_reader import UndergroundFileReader
+from london_underground.underground_file_reader import UndergroundFileReader
 from pytest import *
-from app_lib.calculator import *
+from london_underground.calculator import *
+import os
 
 
 class TestUndergroundFileReader:
@@ -17,5 +18,9 @@ class TestUndergroundFileReader:
     def test_top_weekday_entry(self):
         assert sort_list_by_weekday_entry(self.test_data)[0].station_name == "test station 2"
 
-    def test_bottom_annual_entry_exit(self):#
-        assert sort_list_by_annual_entry_exit(self.test_data,False)[0].station_name == "test station 1"
+    def test_bottom_weekday_exit(self):
+        assert sort_list_by_weekday_exit(self.test_data,False)[0].station_name == "test station 1"
+
+    def test_average_per_borough(self):
+        borough = unique_list_of_boroughs(self.test_data)
+        assert average_per_borough(self.test_data,borough) == [["Brent", 10], ["City of London", 7]]

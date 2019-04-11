@@ -10,24 +10,22 @@ class Station:
         self.sunday_exit = sunday_exit
         self.annual_entry_exit = annual_entry_exit
 
-    def return_titles(self):
-        return "Station Name, Borough, Weekday- Entry, Saturday- Entry, Sunday- Entry, Weekday- Exit, Sturday- Exit, Sunday- Exit, " + \
-               "Annual- Entry + Exit"
+    def return_title(self):
+        return ["Station Name", "Borough", "Weekday- Entry", "Saturday- Entry", "Sunday- Entry", "Weekday- Exit",
+                "Sturday- Exit", "Sunday- Exit", "Annual- Entry + Exit"]
 
     def return_weekday_entry_title(self):
-        return "Station Name, Borough, Weekday- Entry"
+        return ["Station Name", "Borough", "Weekday- Entry"]
 
     def return_weekday_exit_title(self):
-        return "Station Name, Borough, Weekday- Exit"
+        return ["Station Name", "Borough", "Weekday- Exit"]
 
     def return_details(self):
-        return self.station_name + ", " + self.borough + ", " + str(self.weekday_entry) + \
-        ", " + str(self.saturday_exit) + ", " + str(self.sunday_exit) + ", " + \
-        str(self.weekday_exit) + ", " + str(self.saturday_exit) + ", " + str(self.sunday_exit) +\
-        ", " + str(self.annual_entry_exit)
+        return [self.station_name, self.borough, str(self.weekday_entry), str(self.saturday_exit), str(self.sunday_exit),
+                str(self.weekday_exit), str(self.saturday_exit), str(self.sunday_exit), str(self.annual_entry_exit)]
 
     def return_weekday_exit_details(self):
-        return self.station_name + ", " + self.borough + ", " + str(self.weekday_exit)
+        return [self.station_name, self.borough, str(self.weekday_exit)]
 
     def return_weekday_entry_details(self):
-        return self.station_name + ", " + self.borough + ", " + str(self.weekday_entry)
+        return [self.station_name, self.borough, str(self.weekday_entry)]

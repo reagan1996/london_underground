@@ -5,5 +5,5 @@ python:
 install:
         - pip install -r requirements.txt
 script:
-        - python setup.py
+        - python setup.py install
         - python tests/test_underground_file_reader.py

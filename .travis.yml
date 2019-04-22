@@ -1,4 +1,8 @@
+dist: xenial
 language: python
 python:
         - "3.7"
-script: python tests/test_underground_file_reader.py
+install:
+        - pip install -r requirements.txt
+script:
+        - pytest

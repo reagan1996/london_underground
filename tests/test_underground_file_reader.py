@@ -1,6 +1,5 @@
 # from london_underground.underground_file_reader import UndergroundFileReader
 from pytest import *
-import london_underground
 from london_underground.calculator import *
 import os
 

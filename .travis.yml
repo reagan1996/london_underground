@@ -5,7 +5,5 @@ python:
 install:
         - pip install -r requirements.txt
 script:
-        - python london_underground/underground_file_reader.py
-        - python london_underground/station.py
-        - python london_underground/calculator.py
+        - python setup.py
         - python tests/test_underground_file_reader.py

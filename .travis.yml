@@ -5,4 +5,4 @@ python:
 install:
         - pip install -r requirements.txt
 script:
-        - pytest
+        - python test_underground_file_reader.py

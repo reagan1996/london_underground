@@ -29,3 +29,5 @@ class Station:
 
     def return_weekday_entry_details(self):
         return [self.station_name, self.borough, str(self.weekday_entry)]
+
+

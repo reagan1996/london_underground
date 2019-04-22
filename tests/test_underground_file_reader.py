@@ -5,7 +5,8 @@ import os
 
 
 class TestUndergroundFileReader:
-    test_reader = UndergroundFileReader(os.path.abspath("test_data.xlsx"))
+    test_reader = UndergroundFileReader(os.path.normpath(os.path.join(os.getcwd(), "test_data.xlsx")))
+        # os.path.abspath("test_data.xlsx"))
     test_data = list_of_station_class(test_reader.data)
 
     def test_no_file_found(self):
@@ -24,3 +25,4 @@ class TestUndergroundFileReader:
     def test_average_per_borough(self):
         borough = unique_list_of_boroughs(self.test_data)
         assert average_per_borough(self.test_data,borough) == [["Brent", 10], ["City of London", 7]]
+

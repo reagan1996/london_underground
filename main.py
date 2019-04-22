@@ -14,7 +14,15 @@ def story():
 
     top_weekday_exit = sort_list_by_weekday_exit(new_list)
 
+    print("Stations with the highest weekday exits in in 2017")
+
+    input()
+
     print_top_list_weekday_exit(top_weekday_exit, 5)
+
+    input()
+
+    print("City of London Stations with the highest weekday exits")
 
     input()
 

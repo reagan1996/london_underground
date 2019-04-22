@@ -82,6 +82,8 @@ def unique_list_of_boroughs(data):
         unique_list.add(row.borough)
     return sorted(list(unique_list))
 
+
+
 # Find the average weekday exit from each borough
 def average_per_borough(full_list, boroughs):
     list_of_averages= []
